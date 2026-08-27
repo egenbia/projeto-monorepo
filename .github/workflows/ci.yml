@@ -1,0 +1,25 @@
+name: Monorepo CI Pipeline
+
+on:
+  #Dispara automaticamente ao enviar novos commits para a branch main
+  push:
+      branches:
+        - main 
+  #Dispara na abertura na abertura ou atualização de Pull Request direcionados para a branch main
+  pull Request:
+      branches:
+        - main
+  # Permite execução manual pelo painel web do github (aba Actions -> Run workflow)
+  workflow_dispatch:
+
+jobs: 
+    validar-monorepo:
+        name: Validar backend, Frontend e Docker
+        runs-on: ubuntu-latest
+
+        steps: 
+            - name: 1. Baixar o código fonte
+              uses: actions/checkout@v4
+
+            - name: 2. Habilitar o pnpm
+              uses: pnpm/action-setup@vp

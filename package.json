@@ -8,5 +8,11 @@
         "compose:up": "docker compose up -d",
         "compose:down": "docker compose down",
         "compose:logs": "docker compose logs -f"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6"
+    },
+    "dependencies": {
+        "sequelize": "^6.37.8"
     }
 }
