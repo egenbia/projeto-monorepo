@@ -43,7 +43,7 @@ jobs:
 
             - name: 6. Validae Construção da Imagem Docker da API
               run: |
-                doxker build -t api-service:test ./backend
+                docker build -t api-service:test ./backend
 
 
             
