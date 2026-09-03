@@ -77,7 +77,7 @@ export class UserController {
       const novoUser = await User.create({
         nome: nome.trim(),
         email: email.trim().toLowerCase(),
-        password,
+        senha_hash,
       });
 
       return res.status(201).json({
