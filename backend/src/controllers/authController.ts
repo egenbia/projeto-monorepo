@@ -5,30 +5,30 @@ import { User } from '../models/User';
 import { JWT_SECRET } from '../config/auth';
 
 export class AuthController {
-  //POST /api/auth/login
+  // POST /api/auth/login
   public static async login(req: Request, res: Response): Promise<Response> {
     try {
       const { email, password } = req.body;
 
       if (!email || !password) {
-        return res.status(400).json({ erro: 'email e senha obrigatorios' });
+        return res.status(400).json({ erro: 'Email e senha são obrigatórios' });
       }
 
-      //Busca usuario no banco local
+      // Busca usuario no banco local
       const user = await User.findOne({
         where: { email: email.trim().toLowerCase() },
       });
       if (!user || !user.senha_hash) {
-        return res.status(401).json({ erro: 'credenciais invalidas' });
+        return res.status(401).json({ erro: 'Credenciais invalidas.' });
       }
 
-      //valida a senha comparando o texto puro com o hash
+      // Valida a senha comparando o texto puro com o hash
       const senhaValida = await bcrypt.compare(password, user.senha_hash);
       if (!senhaValida) {
-        return res.status(401).json({ erro: 'credenciais invalidas' });
+        return res.status(401).json({ erro: 'Credenciais invalidas.' });
       }
 
-      //gera  o token jwt com validade de 1 hora
+      // Gera o token JWT com validade de 1 hora
       const token = jwt.sign(
         { id: user.id, email: user.email, nome: user.nome },
         JWT_SECRET,
@@ -36,11 +36,11 @@ export class AuthController {
       );
 
       return res.status(200).json({
-        mensagem: 'longin realizado com sucesso!',
+        mensagem: 'Login realizado com sucesso!',
         token,
       });
     } catch (error: any) {
-      return res.status(500).json({ erro: error.mesage });
+      return res.status(500).json({ erro: error.message });
     }
   }
 }
