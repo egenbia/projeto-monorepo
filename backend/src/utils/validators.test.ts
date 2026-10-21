@@ -2,8 +2,10 @@ import { describe, it, expect } from 'vitest';
 import {
   isValidEmail,
   isStrongPassword,
-  validateUserInput,
   UserInput,
+  validateUserInput,
+  //validateUserInput,
+  //UserInput,
 } from './validators';
 
 describe('Módulo de Validação: validators.ts', () => {
@@ -69,7 +71,7 @@ describe('Módulo de Validação: validators.ts', () => {
       // Arrange
       const input: UserInput = {
         name: 'Carlos Silva',
-        email: 'Carlos.silva@fatec.sp.gov.br',
+        email: 'carlos.silva@fatec.sp.gov.br',
         password: 'Password123',
         role: 'aluno',
       };

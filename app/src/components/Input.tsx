@@ -32,7 +32,7 @@ export function Input({
       }}
     >
       <label style={{ fontWeight: 600, fontSize: "0.9rem", color: "#374151" }}>
-        {label} {required && <span style={{ color: "#dc2626" }}></span>}
+        {label} {required && <span style={{ color: "#dc2626" }}>*</span>}
       </label>
       <input
         type={type}
@@ -48,7 +48,7 @@ export function Input({
           fontSize: "1rem",
           transition: "border-color 0.2s",
         }}
-      />{" "}
+      />
       {error ? (
         <span style={{ fontSize: "0.8rem", color: "#dc2626" }}>{error}</span>
       ) : helperText ? (

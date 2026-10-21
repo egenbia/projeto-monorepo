@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import swaggerUI from 'swagger-ui-express';
+import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './docs/swagger.json';
 import cors from 'cors';
 import { appRoutes } from './routes';
@@ -20,7 +20,7 @@ app.get('/api/health', (req: Request, res: Response) => {
 });
 
 // Rota da documentação interativa
-app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Registra todas as rotas da aplicacao sob o prefixo /api
 app.use('/api', appRoutes);

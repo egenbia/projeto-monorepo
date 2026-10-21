@@ -23,7 +23,7 @@ describe('Testes de Integração: Endpoints Base da Aplicação', () => {
   });
 
   describe('Tratamento de Rotas Inexistentes', () => {
-    it('Deve retornar status 404 ao requisitar uma rota não mapeada', async () => {
+    it('deve retornar status 404 ao requisitar uma rota não mapeada', async () => {
       const response = await request(app).get('/api/rota-que-nao-existe');
 
       expect(response.status).toBe(404);
