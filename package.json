@@ -17,9 +17,5 @@
     "onlyBuiltDependencies": [
       "sqlite3"
     ]
-  },
-  "dependencies": {
-    "axios": "^1.20.0",
-    "react-router-dom": "^7.18.4"
   }
 }
